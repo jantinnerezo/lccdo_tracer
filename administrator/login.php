@@ -1,6 +1,6 @@
 <?php
-   require_once('header.php');
 
+   require_once('../config/config.php');
    $error = false;
 
    $url = '';
@@ -23,7 +23,8 @@
 
     if($stmt->rowCount() === 1){
 
-    
+      
+        session_start();
           $_SESSION['admin'] = true;
           header('location: index.php');
           $error = false;
@@ -39,6 +40,7 @@
   }
 
 ?>
+<?php require_once('header.php');?>
 
 <?php if(isset($_SESSION['admin']) || !empty($_SESSION['admin'])):?>
     <?php include_once('index.php');?>
