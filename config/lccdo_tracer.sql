@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 12, 2017 at 12:48 PM
+-- Generation Time: Dec 12, 2017 at 01:28 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -21,6 +21,24 @@ SET time_zone = "+00:00";
 --
 -- Database: `lccdo_tracer`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_admin`
+--
+
+CREATE TABLE `tbl_admin` (
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_admin`
+--
+
+INSERT INTO `tbl_admin` (`username`, `password`) VALUES
+('tracer_admin2017', '5a2fc784bfd18');
 
 -- --------------------------------------------------------
 
@@ -58,7 +76,7 @@ CREATE TABLE `tbl_graduates` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `phone` varchar(11) NOT NULL,
-  `img` varchar(255) DEFAULT NULL,
+  `img` varchar(255) DEFAULT 'avatar.png',
   `status` int(1) NOT NULL,
   `date_registered` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -68,7 +86,8 @@ CREATE TABLE `tbl_graduates` (
 --
 
 INSERT INTO `tbl_graduates` (`graduate_id`, `lastname`, `firstname`, `gender`, `age`, `course_code`, `year_graduated`, `username`, `password`, `phone`, `img`, `status`, `date_registered`) VALUES
-('5a2e8403301ba', 'Erezo', 'Jan', 'male', 21, 'BSIT', '2016-2017', 'silentroom', '$2y$12$eKl62MG3tHRfr9WEjrxUbe6Qz1amPPg.LEhUHfztxK69wuMrt/ulS', '09265566146', '17861633_1677892825561910_6182402807250128639_n.jpg', 1, '2017-12-11 14:11:31');
+('5a2e8403301ba', 'Erezo', 'Jan', 'male', 21, 'BSIT', '2016-2017', 'silentroom', '$2y$12$eKl62MG3tHRfr9WEjrxUbe6Qz1amPPg.LEhUHfztxK69wuMrt/ulS', '09265566146', '17861633_1677892825561910_6182402807250128639_n.jpg', 1, '2017-12-11 14:11:31'),
+('5a2fcb1d89c84', 'test', 'test', 'male', 21, 'BSA', '2015-2016', 'janwick1', '$2y$12$T3GW/vnQ4eVe4PFkYXJHie8kqlDB2mV9lE/vwbUr9qHAghlucbEt.', '09057789770', 'avatar.png', 0, '2017-12-12 13:27:09');
 
 -- --------------------------------------------------------
 
@@ -97,6 +116,12 @@ INSERT INTO `tbl_job_history` (`job_id`, `graduate_id`, `date_hired`, `company`,
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `tbl_admin`
+--
+ALTER TABLE `tbl_admin`
+  ADD PRIMARY KEY (`username`);
 
 --
 -- Indexes for table `tbl_courses`

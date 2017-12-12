@@ -12,6 +12,7 @@
         header('location: login.php');
         exit;
     }else{
+
         $profile = view_profile($pdo,$_SESSION['graduate_id']);
         $jobs = job_history($pdo,$_SESSION['graduate_id']);
     }

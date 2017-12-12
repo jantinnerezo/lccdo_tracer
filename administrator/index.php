@@ -2,6 +2,11 @@
 
     require_once('header.php');
 
+    if(!isset($_SESSION['admin']) || empty($_SESSION['admin'])){
+        header('location: login.php');
+        exit;
+    }
+
     $course = '';
     $graduates = graduates($pdo);
     $years = years($pdo);
@@ -34,6 +39,7 @@
         $course = 'All';
     }
 
+   
 ?>
 
 <div class="container-fluid">

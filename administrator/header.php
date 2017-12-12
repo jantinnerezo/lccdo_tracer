@@ -2,6 +2,10 @@
     require_once('../config/globals.php');
     $courses = courses($pdo);
     $unverified = unverified($pdo);
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
     
 ?>
 <!DOCTYPE html>
@@ -39,7 +43,11 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                 <ul class="nav navbar-nav  bg-dark">
-                    <li class="nav-item">
+
+                <?php if(!isset($_SESSION['admin']) || empty($_SESSION['admin'])):?>
+
+                <?php else:?>
+                <li class="nav-item">
                         <a class="nav-link" href="index.php"><span class="oi oi-people"></span> Graduates</a>
                     </li>
 
@@ -49,9 +57,12 @@
                         </li>
                     <?php endif;?>                    
                     <li class="nav-item">
-                        <a class="nav-link" href="login.php"><span class="oi oi-account-logout"></span> Logout</a>
+                        <a class="nav-link" href="controller.php?logout=true"><span class="oi oi-account-logout"></span> Logout</a>
                     </li>
-                    </ul>
+
+                <?php endif;?>
+                  
+                </ul>
                 </div>
         </div>
     </nav> 

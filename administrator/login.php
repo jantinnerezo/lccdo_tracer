@@ -1,6 +1,6 @@
 <?php
-   
-  require_once('../config/config.php');
+   require_once('header.php');
+
    $error = false;
 
    $url = '';
@@ -15,27 +15,19 @@
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
 
-    $sql = 'SELECT graduate_id, username, password FROM tbl_graduates WHERE username = :username ';
+    $sql = 'SELECT* FROM tbl_admin WHERE username = :username AND password = :password';
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+    $stmt->bindParam(':password', $password, PDO::PARAM_STR);
     $stmt->execute();
 
     if($stmt->rowCount() === 1){
 
-        $row = $stmt->fetch();
-        $hashed_password = $row->password;
-        if(password_verify($password, $hashed_password)){
-          // SUCCESSFUL LOGIN
-          session_start();
-          $_SESSION['username'] = $username;
-          $_SESSION['graduate_id'] = $row->graduate_id;
-          header('location: profile.php');
+    
+          $_SESSION['admin'] = true;
+          header('location: index.php');
           $error = false;
          
-        } else {
-          
-          $error = true;
-        }
 
     }else{
 
@@ -48,10 +40,7 @@
 
 ?>
 
-
-<?php require_once('header.php'); ?>
-
-<?php if(isset($_SESSION['username']) || !empty($_SESSION['username'])):?>
+<?php if(isset($_SESSION['admin']) || !empty($_SESSION['admin'])):?>
     <?php include_once('index.php');?>
 <?php else: ?>
 
