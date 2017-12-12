@@ -1,0 +1,109 @@
+body{
+
+    background-color: #f4f4f4;
+}
+
+
+.is-flex{
+
+    height: 130vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.register{
+
+    width: 430px;
+}
+
+.index{
+
+    height: 80vh;
+}
+
+.index .card-header{
+
+    font-size: 1.5em;
+}
+
+.index-body{
+    height: 80vh;
+    overflow-y: scroll;
+}
+
+
+.login{
+
+    height: 84vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.inner-login{
+
+    width:400px
+}
+#graduate_length{
+    
+        display: none !important;
+    }
+
+#graduate_filter{
+
+    display: none !important;
+}
+
+.pagination{
+    float: right !important;
+}
+
+.page-item.active .page-link {
+    z-index: 2;
+    color: #fff;
+    background-color: #333;
+    border-color: #333;
+}
+
+.page-link {
+    position: relative;
+    display: block;
+    padding: .5rem .75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #fff;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+.avatar{
+
+    width: 100px;
+    height: 100px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50px;
+    margin: 0 auto;
+}
+
+.profile-cover{
+
+    background-image:url('../img/cover.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color:#fff;
+    padding:15px;
+}
+
+
+.notification{
+
+    width: 100%;
+    padding: 10px;
+}
+
