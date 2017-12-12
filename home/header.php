@@ -23,6 +23,8 @@
     <!-- Icon fonts -->
     <link rel="stylesheet" href="../resources/css/open-iconic-bootstrap.css">
 
+    <link rel="icon" href="<?php echo ROOT_URL;?>/resources/img/lc.ico">
+
 </head>
 <body>
 
